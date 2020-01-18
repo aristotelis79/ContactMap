@@ -27,7 +27,8 @@ export class ContactService {
   }
 
   deleteContact(id: number) {
-    return this.http.delete<string>(`/api/contacts${id}`)
-      .pipe(catchError(handleError<string>('deleteContact', '')));//TODO
+    debugger;
+    return this.http.delete<string>(`/api/contacts/${id}`)
+      .pipe(catchError(handleError<string>('deleteContact')));//TODO
   }
 }

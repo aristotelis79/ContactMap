@@ -10,6 +10,8 @@ import { CardComponent } from './cards/card/card.component';
 import { AddContactComponent } from './cards/contact/add-contact.component';
 import { AddAddressComponent } from './cards/address/add-address.component';
 import { MapComponent } from './map/map.component'
+import { JQ_TOKEN } from './common/jquery.service';
+let jQuery = window["$"];
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { MapComponent } from './map/map.component'
     CardComponent,
     AddContactComponent,
     AddAddressComponent,
-    MapComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,10 @@ import { MapComponent } from './map/map.component'
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: JQ_TOKEN,
+    useValue: jQuery
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
