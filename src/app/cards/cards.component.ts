@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { IContact } from '../models/contact.model';
+import { ActivatedRoute } from "@angular/router";
+import { ContactService } from '../services/contact.service';
+
 
 @Component({
   selector: 'app-cards',
@@ -6,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
-
-  constructor() { }
+  contacts: IContact[];
+  constructor(private route: ActivatedRoute, private contactService: ContactService) { }
 
   ngOnInit() {
+    this.contactService.getContacts().subscribe(s => {
+      this.contacts = s;
+    });
   }
 
 }
