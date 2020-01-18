@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+$spacer: 1rem;
+
+.mt-1 {
+  margin-top: ($spacer * .25) !important;
+}
