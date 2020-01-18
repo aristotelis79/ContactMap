@@ -22,7 +22,7 @@ export class AddContactComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       fullName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.min(7), Validators.maxLength(14)]],
+      phone: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(14)]],
       title: '',
       company: '',
       addresses: this.formBuilder.array([
@@ -38,24 +38,20 @@ export class AddContactComponent implements OnInit {
     });
   };
 
-  get f() {
-    return this.registerForm.controls;
-  }
-
   onSubmit(contact) {
-    debugger;
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;
     }
     if (this.submitted) {
       this.contactService.createContact(contact).subscribe(s => {
-        debugger;
         this.showModal = false;
       });
     }
   }
 
+  get f() { debugger; return this.registerForm.controls; }
+  get fa() { return this.registerForm.controls.addresses; }
   show() { this.showModal = true; }
   hide() { this.showModal = false; }
 }
