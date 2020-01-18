@@ -1,0 +1,29 @@
+<div class="card bg-light mt-2 ml-1">
+  <div class="card-header">
+    <b>{{contact.fullName}}</b>
+  </div>
+  <div class="card-body">
+    <div class="card-text">
+      <div>{{contact.email}}</div>
+      <div>{{contact.phone}}</div>
+      <div>{{contact.title}}</div>
+      <div>{{contact.company}}</div>
+      <div *ngFor="let address of contact.addresses">
+        {{address.roadName}}, {{address.roadNumber}}, {{address.zipCode}}, {{address.area}},
+        {{address.country}}
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="row no-gutters">
+      <div class="col-auto mr-auto">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">Add to map</label>
+        </div>
+      </div>
+      <div class="col-auto">
+        <a href="#" class="btn btn-sm  btn-primary">New Address</a></div>
+    </div>
+  </div>
+</div>
