@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IContact } from '../models/contact.model';
-import { ActivatedRoute } from "@angular/router";
 import { ContactService } from '../services/contact.service';
 
 
@@ -11,12 +10,13 @@ import { ContactService } from '../services/contact.service';
 })
 export class CardsComponent implements OnInit {
   contacts: IContact[];
-  constructor(private route: ActivatedRoute, private contactService: ContactService) { }
+  isSaved: boolean = false;
+  constructor(
+    private contactService: ContactService) { }
 
   ngOnInit() {
     this.contactService.getContacts().subscribe(s => {
       this.contacts = s;
     });
   }
-
 }
