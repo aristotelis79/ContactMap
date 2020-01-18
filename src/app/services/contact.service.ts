@@ -25,4 +25,9 @@ export class ContactService {
     return this.http.post<IContact>("/api/contacts", contact, options)
       .pipe(catchError(handleError<IContact[]>('createContact', [])));
   }
+
+  deleteContact(id: number) {
+    return this.http.delete<string>(`/api/contacts${id}`)
+      .pipe(catchError(handleError<string>('deleteContact', '')));//TODO
+  }
 }

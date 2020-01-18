@@ -1,6 +1,11 @@
 <div class="card bg-light mt-2 ml-1">
   <div class="card-header">
-    <b>{{contact.fullName}}</b>
+    <div class="row no-gutters">
+      <b class="col-auto mr-auto">{{contact.fullName}}</b>
+      <button type="button" class="close col-auto close-action-color" aria-label="Close">
+        <span class="close-action-color" aria-hidden="true">&times;</span>
+      </button>
+    </div>
   </div>
   <div class="card-body">
     <div class="card-text">

@@ -9,7 +9,7 @@ import { CardsComponent } from './cards/cards.component';
 import { CardComponent } from './cards/card/card.component';
 import { AddContactComponent } from './cards/contact/add-contact.component';
 import { AddAddressComponent } from './cards/address/add-address.component';
-import { MapComponent } from './map.component';
+import { MapComponent } from './map/map.component'
 
 @NgModule({
   declarations: [
