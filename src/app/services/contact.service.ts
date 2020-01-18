@@ -18,6 +18,7 @@ export class ContactService {
   }
 
   createContact(contact: IContact) {
+    debugger;
     var options = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     }
