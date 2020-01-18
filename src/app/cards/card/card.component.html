@@ -23,7 +23,11 @@
         </div>
       </div>
       <div class="col-auto">
-        <a href="#" class="btn btn-sm  btn-primary">New Address</a></div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" (click)="addAddress.show()">New
+          Address</button>
+      </div>
     </div>
   </div>
 </div>
+
+<app-add-address #addAddress></app-add-address>
