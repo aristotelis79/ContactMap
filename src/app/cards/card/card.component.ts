@@ -4,6 +4,7 @@ import { ContactService } from 'src/app/services/contact.service';
 import { JQ_TOKEN } from 'src/app/common/jquery.service';
 import { MapService } from 'src/app/services/map.service';
 import { IMarker } from 'src/app/models/marker.model';
+import { IToastr, TOASTR_TOKEN } from 'src/app/common/toastr.service';
 
 
 @Component({
@@ -18,14 +19,16 @@ export class CardComponent implements OnInit {
 
   constructor(private contactService: ContactService,
     @Inject(JQ_TOKEN) private $: any,
-    private mapService: MapService) { }
+    private mapService: MapService,
+    @Inject(TOASTR_TOKEN) private toastr: IToastr) { }
 
   ngOnInit() {
   }
 
   deleteContact(id) {
     this.contactService.deleteContact(id).subscribe(s => {
-      this.$(`#card-contact-${id}`).remove()
+      this.$(`#card-contact-${id}`).remove();
+      this.toastr.info('Contact deleted');
     });
   }
 

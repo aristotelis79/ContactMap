@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { IAddress } from 'src/app/models/address.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AddreessService } from 'src/app/services/addreess.service';
+import { IToastr, TOASTR_TOKEN } from 'src/app/common/toastr.service';
 
 @Component({
   selector: 'app-add-address',
@@ -17,7 +18,8 @@ export class AddAddressComponent implements OnInit {
 
   constructor(
     private addressService: AddreessService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    @Inject(TOASTR_TOKEN) private toastr: IToastr) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -39,6 +41,7 @@ export class AddAddressComponent implements OnInit {
       addreess.contactId = this.contactId;
       this.addressService.createAddress(addreess).subscribe(s => {
         this.showModal = false;
+        this.toastr.success('Addrees created');
       });
     }
   }

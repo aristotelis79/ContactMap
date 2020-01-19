@@ -13,11 +13,11 @@ export class HttpHelper {
   handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {
       if (error) {
-        if (error.message) {
-          this.toastr.error(error.message, 'Something Wrong Happend');
+        if (error.error) {
+          this.toastr.error(error.error, 'Something Wrong Happened');
         }
-        else if (error.error) {
-          this.toastr.error(error.error, 'Something Wrong Happend');
+        else if (error.message) {
+          this.toastr.error(error.message, 'Something Wrong Happened');
         }
       }
       return of(result as T);

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IContact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
+import { TOASTR_TOKEN, IToastr } from 'src/app/common/toastr.service';
 
 @Component({
   selector: 'app-add-contact',
@@ -16,7 +17,8 @@ export class AddContactComponent implements OnInit {
 
   constructor(
     private contactService: ContactService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    @Inject(TOASTR_TOKEN) private toastr: IToastr) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -46,6 +48,7 @@ export class AddContactComponent implements OnInit {
     if (this.submitted) {
       this.contactService.createContact(contact).subscribe(s => {
         this.showModal = false;
+        this.toastr.success('Contact created');
       });
     }
   }
