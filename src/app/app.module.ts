@@ -13,7 +13,9 @@ import { AddAddressComponent } from './cards/address/add-address.component';
 import { MapComponent } from './map/map.component'
 
 import { JQ_TOKEN } from './common/jquery.service';
+import { TOASTR_TOKEN, IToastr } from './common/toastr.service';
 let jQuery = window["$"];
+let toastr: IToastr = window["toastr"];
 
 @NgModule({
   declarations: [
@@ -30,11 +32,14 @@ let jQuery = window["$"];
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyCfzfGQVyZCiEsNpu0E_CvIaDciJZBQ_eo' })
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyCfzfGQVyZCiEsNpu0E_CvIaDciJZBQ_eo' }),
   ],
   providers: [{
     provide: JQ_TOKEN,
     useValue: jQuery
+  }, {
+    provide: TOASTR_TOKEN,
+    useValue: toastr
   }],
   bootstrap: [AppComponent]
 })
