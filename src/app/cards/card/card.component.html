@@ -17,7 +17,7 @@
       <div *ngFor="let address of contact.addresses; let i = index" [attr.data-index]="i">
         <input class="form-check-input" type="checkbox" value="" id="addMarker-{{contact.id}}-{{i}}"
           (change)="toggleAddress(i)">
-        <label for="addMarker-{{contact.id}}-{{i}}" [ngClass]="{highlight: marked[i]}">
+        <label class="ml-4" for="addMarker-{{contact.id}}-{{i}}" [ngClass]="{highlight: marked[i]}">
           {{address.roadName}}, {{address.roadNumber}}, {{address.zipCode}}, {{address.area}},{{address.city}},
           {{address.country}}
         </label>

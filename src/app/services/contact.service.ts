@@ -18,7 +18,6 @@ export class ContactService {
   }
 
   createContact(contact: IContact) {
-    debugger;
     var options = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     }
@@ -27,7 +26,6 @@ export class ContactService {
   }
 
   deleteContact(id: number) {
-    debugger;
     return this.http.delete<string>(`/api/contacts/${id}`)
       .pipe(catchError(handleError<string>('deleteContact')));//TODO
   }

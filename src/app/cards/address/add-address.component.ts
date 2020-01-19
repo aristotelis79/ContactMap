@@ -31,7 +31,6 @@ export class AddAddressComponent implements OnInit {
   };
 
   onSubmit(addreess: IAddress) {
-    debugger;
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;

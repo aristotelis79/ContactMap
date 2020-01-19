@@ -19,6 +19,22 @@ agm-map {
   height: calc(100% - 6em);
 }
 
+
+
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 5px;
+  border: 2px solid #555;
+  margin-left: 0;
+}
+
+input[type='checkbox']:checked {
+  background-color: #FFFF00;
+}
+
 .highlight {
   background-color: #FFFF00;
 }
