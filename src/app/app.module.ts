@@ -32,7 +32,7 @@ let toastr: IToastr = window["toastr"];
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyCfzfGQVyZCiEsNpu0E_CvIaDciJZBQ_eo' }),
+    AgmCoreModule.forRoot({ apiKey: '' }),
   ],
   providers: [{
     provide: JQ_TOKEN,

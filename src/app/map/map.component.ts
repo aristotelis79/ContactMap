@@ -63,13 +63,6 @@ export class MapComponent implements OnInit {
         if (status == 'OK') {
           rs(results[0].geometry.location);
         } else {
-
-          if (marker.address.contactId % 2 == 0)
-            var demoresults = JSON.parse('[{"address_components":[{"long_name":"47","short_name":"47","types":["street_number"]},{"long_name":"Chiou","short_name":"Chiou","types":["route"]},{"long_name":"Peristeri","short_name":"Peristeri","types":["locality","political"]},{"long_name":"Ditikos Tomeas Athinon","short_name":"Ditikos Tomeas Athinon","types":["administrative_area_level_3","political"]},{"long_name":"Greece","short_name":"GR","types":["country","political"]},{"long_name":"121 33","short_name":"121 33","types":["postal_code"]}],"formatted_address":"Chiou 47, Peristeri 121 33, Greece","geometry":{"location":{"lat":38.02174180000001,"lng":23.697979300000043},"location_type":"ROOFTOP","viewport":{"south":38.02039281970851,"west":23.696630319708447,"north":38.02309078029151,"east":23.699328280291525}},"place_id":"ChIJK3lddhajoRQRLgMKMj9WcqY","plus_code":{"compound_code":"2MCX+M5 Peristeri, Greece","global_code":"8GC52MCX+M5"},"types":["street_address"]}]');
-          else
-            var demoresults = JSON.parse('[{"address_components":[{"long_name":"47","short_name":"47","types":["street_number"]},{"long_name":"Chiou","short_name":"Chiou","types":["route"]},{"long_name":"Peristeri","short_name":"Peristeri","types":["locality","political"]},{"long_name":"Ditikos Tomeas Athinon","short_name":"Ditikos Tomeas Athinon","types":["administrative_area_level_3","political"]},{"long_name":"Greece","short_name":"GR","types":["country","political"]},{"long_name":"121 33","short_name":"121 33","types":["postal_code"]}],"formatted_address":"Xania 100, Peristeri 121 33, Greece","geometry":{"location":{"lat":38.93174180000001,"lng":23.677979300000043},"location_type":"ROOFTOP","viewport":{"south":38.02039281970851,"west":23.696630319708447,"north":38.02309078029151,"east":23.699328280291525}},"place_id":"ChIJK3lddhajoRQRLgMKMj9WcqY","plus_code":{"compound_code":"2MCX+M5 Peristeri, Greece","global_code":"8GC52MCX+M5"},"types":["street_address"]}]');
-          var loc = demoresults[0].geometry.location;
-          rs(loc); return;
           var errorMsg = 'Geocode was not successful for the following reason: ' + status;
           this.toastr.warning(errorMsg, 'Geocode Error');
           rj(errorMsg);
