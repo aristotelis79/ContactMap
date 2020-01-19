@@ -30,7 +30,7 @@ let jQuery = window["$"];
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyCC_hI3UFPaAGyENJ0XeHwY1WxwAQg6rL0' })
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyCfzfGQVyZCiEsNpu0E_CvIaDciJZBQ_eo' })
   ],
   providers: [{
     provide: JQ_TOKEN,

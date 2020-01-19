@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 $red: rgb(155, 1, 1);
+$spacer: 0.5em;
 
 .close-action-color {
   color: $red;
@@ -7,4 +8,13 @@ $red: rgb(155, 1, 1);
   &hover {
     color: red !important;
   }
+}
+
+.mt-9 {
+  margin-top: 5em !important;
+  height: 100vh;
+}
+
+agm-map {
+  height: calc(100% - 6em);
 }

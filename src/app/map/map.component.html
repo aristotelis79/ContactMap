@@ -1,2 +1,7 @@
-<agm-map [latitude]='latitude' [longitude]='longitude' [mapTypeId]='mapType'>
+<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="12">
+  <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng" [title]="marker.title"
+    [label]="marker.label" [markerDraggable]="false">
+  </agm-marker>
+  <agm-rectangle [north]="max('lat')" [east]="max('lng')" [south]="min('lat')" [west]="min('lng')">
+  </agm-rectangle>
 </agm-map>
