@@ -14,22 +14,19 @@
       <div>{{contact.phone}}</div>
       <div>{{contact.title}}</div>
       <div>{{contact.company}}</div>
-      <div *ngFor="let address of contact.addresses">
-        {{address.roadName}}, {{address.roadNumber}}, {{address.zipCode}}, {{address.area}},
-        {{address.city}}, {{address.country}}
+      <div *ngFor="let address of contact.addresses; let i = index" [attr.data-index]="i">
+        <input class="form-check-input" type="checkbox" value="" id="addMarker-{{contact.id}}-{{i}}"
+          (change)="toggleAddress(i)">
+        <label for="addMarker-{{contact.id}}-{{i}}" [ngClass]="{highlight: marked[i]}">
+          {{address.roadName}}, {{address.roadNumber}}, {{address.zipCode}}, {{address.area}},{{address.city}},
+          {{address.country}}
+        </label>
       </div>
     </div>
   </div>
   <div class="card-footer">
     <div class="row no-gutters">
       <div class="col-auto mr-auto">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="addMarker-{{contact.id}}"
-            (click)="toggleAddress($event)">
-          <label class="form-check-label" for="addMarker-{{contact.id}}">Add to map</label>
-        </div>
-      </div>
-      <div class="col-auto">
         <button type="button" class="btn btn-primary" data-toggle="modal" (click)="addAddress.show()">New
           Address</button>
       </div>

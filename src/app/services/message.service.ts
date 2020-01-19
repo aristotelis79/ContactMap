@@ -8,17 +8,22 @@ import { IAddress } from '../models/address.model';
 })
 export class MessageService {
 
-  private subject = new Subject<IAddress>();
+  private addSubject = new Subject<IAddress>();
+  private deleteSubject = new Subject<IAddress>();
 
-  sendMessage(contact: IAddress) {
-    this.subject.next(contact);
+  sendAddMessage(address: IAddress) {
+    this.addSubject.next(address);
   }
 
-  clearMessages() {
-    this.subject.next();
+  sendDeleteMessage(address: IAddress) {
+    this.deleteSubject.next(address);
   }
 
-  getMessage(): Observable<IAddress> {
-    return this.subject.asObservable();
+  getAddMessage(): Observable<IAddress> {
+    return this.addSubject.asObservable();
+  }
+
+  getDeleteMessage(): Observable<IAddress> {
+    return this.deleteSubject.asObservable();
   }
 }

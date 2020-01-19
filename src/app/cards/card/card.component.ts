@@ -3,7 +3,6 @@ import { IContact } from 'src/app/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
 import { JQ_TOKEN } from 'src/app/common/jquery.service';
 import { MessageService } from 'src/app/services/message.service';
-import { IAddress } from 'src/app/models/address.model';
 
 @Component({
   selector: 'app-card',
@@ -13,12 +12,11 @@ import { IAddress } from 'src/app/models/address.model';
 export class CardComponent implements OnInit {
   @Input() contact: IContact;
   @Input() elementId: string;
-  marked = false;
-  theCheckbox = false;
+  marked = {};
 
   constructor(private contactService: ContactService,
     @Inject(JQ_TOKEN) private $: any,
-    private map: MessageService) { }
+    private messageService: MessageService) { }
 
   ngOnInit() {
   }
@@ -30,8 +28,11 @@ export class CardComponent implements OnInit {
     });
   }
 
-  toggleAddress(e) {
-    this.marked = e.target.checked;
-    this.map.sendMessage(this.contact.addresses[0]);
+  toggleAddress(i: number) {
+    this.marked[i] = !this.marked[i];
+    if (this.marked[i])
+      this.messageService.sendAddMessage(this.contact.addresses[i]);
+    else
+      this.messageService.sendDeleteMessage(this.contact.addresses[i]);
   }
 }
