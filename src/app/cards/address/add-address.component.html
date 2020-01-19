@@ -1,1 +1,70 @@
-<p>add-address works!</p>
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="contactModal" tabindex="-1" role="dialog"
+  aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="contactModalLabel">New Address</h3>
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <input type="text" formControlName="roadName" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && fa.roadName.errors }" placeholder="Road Name" />
+                <div *ngIf="submitted && fa.roadName.errors" class="invalid-feedback">
+                  <div *ngIf="fa.roadName.errors.required">Road name is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <input type="text" formControlName="roadNumber" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && fa.roadNumber.errors }" placeholder="Road number" />
+                <div *ngIf="submitted && fa.roadNumber.errors" class="invalid-feedback">
+                  <div *ngIf="fa.roadNumber.errors.required">Road number is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <input type="text" formControlName="zipCode" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted &&  fa.zipCode.errors }" placeholder="ZipCode" />
+                <div *ngIf="submitted && fa.zipCode.errors" class="invalid-feedback">
+                  <div *ngIf=" fa.zipCode.errors.required">ZipCode is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <input type="text" formControlName="area" class="form-control" placeholder="Area" />
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <input type="text" formControlName="city" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && fa.city.errors }" placeholder="City" />
+                <div *ngIf="submitted && fa.city.errors" class="invalid-feedback">
+                  <div *ngIf="fa.city.errors.required">City is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="form-group">
+                <input type="text" formControlName="country" class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && fa.country.errors }" placeholder="Country" />
+                <div *ngIf="submitted && fa.country.errors" class="invalid-feedback">
+                  <div *ngIf="fa.country.errors.required">Country is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="hide()">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

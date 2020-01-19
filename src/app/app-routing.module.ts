@@ -4,7 +4,6 @@ import { CardsComponent } from '../app/cards/cards.component'
 
 const routes: Routes = [
   { path: 'cards', component: CardsComponent },
-  { path: '', redirectTo: 'cards', pathMatch: 'full' },
   { path: '**', redirectTo: 'cards', pathMatch: 'full' }
 ];
 

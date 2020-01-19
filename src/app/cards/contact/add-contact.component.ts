@@ -50,7 +50,7 @@ export class AddContactComponent implements OnInit {
     }
   }
 
-  get f() { debugger; return this.registerForm.controls; }
+  get f() { return this.registerForm.controls; }
   get fa() { return this.registerForm.controls.addresses; }
   show() { this.showModal = true; }
   hide() { this.showModal = false; }
