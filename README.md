@@ -18,7 +18,7 @@
 
 ## Development server
 
-> Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. 
+> Run first `npm install` and after `npm start` for a dev server. Navigate to `http://localhost:4200/`. 
 
 > For geocoding address need GoogleMap Api Key at /src/app.modelule.ts at line AgmCoreModule.forRoot({ apiKey: '' }),
 
